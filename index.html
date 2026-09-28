@@ -1,305 +1,733 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Jolan Nazareno, a Modern Workplace specialist focused on Microsoft 365, Intune, Entra ID, security, compliance, and Windows Server.">
+  <meta name="theme-color" content="#07111f">
+  <title>Jolan Nazareno | Modern Workplace Specialist</title>
 
-    <meta 
-        name="viewport" 
-        content="width=device-width, initial-scale=1.0"
-    >
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0c1a2c;
+      --surface: rgba(14, 29, 48, 0.82);
+      --surface-strong: #10243b;
+      --text: #eef6ff;
+      --muted: #a9bad0;
+      --primary: #55a7ff;
+      --secondary: #65e2d1;
+      --border: rgba(148, 184, 219, 0.18);
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.32);
+      --radius: 22px;
+      --max-width: 1120px;
+    }
 
-    <meta 
-        name="description" 
-        content="Portfolio website of Jolan Nazareno, Solutions Specialist for Modern Workplace."
-    >
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <title>Jolan Nazareno | Modern Workplace Specialist</title>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
-    <style>
-        /* Reset default browser spacing */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(42, 122, 218, 0.25), transparent 30%),
+        radial-gradient(circle at 88% 22%, rgba(32, 195, 170, 0.13), transparent 25%),
+        linear-gradient(145deg, #050b14 0%, var(--bg) 45%, #091829 100%);
+      font-family: "Segoe UI", Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.7;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    a {
+      color: inherit;
+    }
 
-        body {
-            min-height: 100vh;
-            font-family: "Segoe UI", Arial, sans-serif;
-            color: #f8fafc;
-            background:
-                radial-gradient(
-                    circle at top left,
-                    rgba(37, 99, 235, 0.35),
-                    transparent 35%
-                ),
-                linear-gradient(
-                    135deg,
-                    #020617,
-                    #0f172a,
-                    #111827
-                );
-        }
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin-inline: auto;
+    }
 
-        /* Navigation */
+    .skip-link {
+      position: fixed;
+      top: -60px;
+      left: 20px;
+      z-index: 1000;
+      padding: 10px 16px;
+      border-radius: 8px;
+      color: #04111f;
+      background: var(--secondary);
+      font-weight: 700;
+      transition: top 0.2s ease;
+    }
 
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 1100px;
-            margin: auto;
-            padding: 25px 30px;
-        }
+    .skip-link:focus {
+      top: 18px;
+    }
 
-        .logo {
-            color: #ffffff;
-            font-size: 1.3rem;
-            font-weight: 700;
-            text-decoration: none;
-        }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(5, 11, 20, 0.78);
+      backdrop-filter: blur(16px);
+    }
 
-        .logo span {
-            color: #60a5fa;
-        }
+    nav {
+      display: flex;
+      min-height: 72px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
+    .brand {
+      color: #ffffff;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
 
-        .nav-links a {
-            color: #cbd5e1;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+    .brand span,
+    .accent {
+      color: var(--primary);
+    }
 
-        .nav-links a:hover {
-            color: #60a5fa;
-        }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
 
-        /* Main content */
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.93rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
 
-        main {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: calc(100vh - 90px);
-            padding: 40px 20px 80px;
-        }
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--primary);
+    }
 
-        .portfolio-card {
-            width: 100%;
-            max-width: 900px;
-            padding: 60px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 24px;
-            background: rgba(15, 23, 42, 0.72);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
-            backdrop-filter: blur(16px);
-        }
+    .hero {
+      display: grid;
+      min-height: calc(100vh - 72px);
+      padding-block: 90px 70px;
+      align-items: center;
+    }
 
-        .profile-badge {
-            display: inline-block;
-            margin-bottom: 24px;
-            padding: 8px 16px;
-            border: 1px solid rgba(96, 165, 250, 0.35);
-            border-radius: 999px;
-            color: #93c5fd;
-            background: rgba(37, 99, 235, 0.15);
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(32px, 6vw, 72px);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: linear-gradient(140deg, rgba(17, 38, 64, 0.91), rgba(8, 21, 36, 0.82));
+      box-shadow: var(--shadow);
+    }
 
-        h1 {
-            margin-bottom: 14px;
-            font-size: clamp(2.4rem, 7vw, 4.6rem);
-            line-height: 1.05;
-            letter-spacing: -2px;
-        }
+    .hero-card::after {
+      position: absolute;
+      right: -90px;
+      bottom: -130px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(85, 167, 255, 0.23), transparent 68%);
+      content: "";
+      pointer-events: none;
+    }
 
-        h1 span {
-            color: #60a5fa;
-        }
+    .eyebrow {
+      display: inline-flex;
+      margin-bottom: 22px;
+      padding: 7px 14px;
+      border: 1px solid rgba(101, 226, 209, 0.29);
+      border-radius: 999px;
+      color: var(--secondary);
+      background: rgba(101, 226, 209, 0.08);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
 
-        .job-title {
-            margin-bottom: 28px;
-            color: #94a3b8;
-            font-size: clamp(1rem, 3vw, 1.3rem);
-            line-height: 1.6;
-        }
+    h1 {
+      max-width: 900px;
+      font-size: clamp(2.8rem, 8vw, 6.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
 
-        .introduction {
-            max-width: 700px;
-            margin-bottom: 32px;
-            color: #cbd5e1;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
+    .hero h2 {
+      margin-top: 22px;
+      color: #c8dcf2;
+      font-size: clamp(1.15rem, 3vw, 1.55rem);
+      font-weight: 500;
+    }
 
-        /* Skill tags */
+    .hero-copy {
+      max-width: 780px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.12rem);
+    }
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 38px;
-        }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
 
-        .skill {
-            padding: 9px 14px;
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            border-radius: 10px;
-            color: #e2e8f0;
-            background: rgba(255, 255, 255, 0.05);
-            font-size: 0.9rem;
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease,
-                background-color 0.3s ease;
-        }
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      padding: 11px 20px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
 
-        .skill:hover {
-            transform: translateY(-3px);
-            border-color: #60a5fa;
-            background: rgba(37, 99, 235, 0.15);
-        }
+    .button:hover {
+      transform: translateY(-2px);
+    }
 
-        /* Buttons */
+    .button-primary {
+      border-color: transparent;
+      color: #03101d;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+    }
 
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+    .button-secondary {
+      color: #ddecfb;
+      background: rgba(255, 255, 255, 0.04);
+    }
 
-        .button {
-            display: inline-block;
-            padding: 13px 22px;
-            border: 1px solid #3b82f6;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
-            transition:
-                transform 0.3s ease,
-                background-color 0.3s ease,
-                box-shadow 0.3s ease;
-        }
+    section {
+      padding-block: 78px;
+    }
 
-        .button-primary {
-            color: #ffffff;
-            background: #2563eb;
-        }
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
 
-        .button-primary:hover {
-            transform: translateY(-3px);
-            background: #1d4ed8;
-            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
-        }
+    .section-label {
+      margin-bottom: 8px;
+      color: var(--secondary);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
-        .button-secondary {
-            color: #93c5fd;
-            background: transparent;
-        }
+    h2 {
+      font-size: clamp(2rem, 4.5vw, 3.3rem);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+    }
 
-        .button-secondary:hover {
-            transform: translateY(-3px);
-            color: #ffffff;
-            background: rgba(37, 99, 235, 0.15);
-        }
+    .section-intro {
+      margin-top: 12px;
+      color: var(--muted);
+    }
 
-        /* Responsive design */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 24px;
+      align-items: stretch;
+    }
 
-        @media (max-width: 700px) {
-            nav {
-                padding: 22px 20px;
-            }
+    .panel {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.16);
+    }
 
-            .nav-links {
-                display: none;
-            }
+    .panel p {
+      color: var(--muted);
+    }
 
-            .portfolio-card {
-                padding: 35px 25px;
-                border-radius: 18px;
-            }
+    .focus-list {
+      display: grid;
+      gap: 13px;
+      margin-top: 6px;
+      list-style: none;
+    }
 
-            h1 {
-                letter-spacing: -1px;
-            }
+    .focus-list li {
+      position: relative;
+      padding-left: 24px;
+      color: #cbd9e8;
+    }
 
-            .buttons {
-                flex-direction: column;
-            }
+    .focus-list li::before {
+      position: absolute;
+      top: 0.7em;
+      left: 0;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      content: "";
+    }
 
-            .button {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(155deg, rgba(18, 40, 66, 0.78), rgba(9, 23, 39, 0.84));
+      transition: transform 0.22s ease, border-color 0.22s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(85, 167, 255, 0.5);
+    }
+
+    .skill-number {
+      color: var(--primary);
+      font-size: 0.77rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .skill-card h3 {
+      margin: 10px 0 8px;
+      font-size: 1.08rem;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 20px;
+      padding-left: 26px;
+    }
+
+    .timeline::before {
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      left: 5px;
+      width: 2px;
+      background: linear-gradient(var(--primary), rgba(101, 226, 209, 0.15));
+      content: "";
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--surface);
+    }
+
+    .timeline-item::before {
+      position: absolute;
+      top: 31px;
+      left: -27px;
+      width: 12px;
+      height: 12px;
+      border: 3px solid var(--bg);
+      border-radius: 50%;
+      background: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(101, 226, 209, 0.18);
+      content: "";
+    }
+
+    .timeline-item h3 {
+      font-size: 1.22rem;
+    }
+
+    .company {
+      margin: 3px 0 12px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .timeline-item p,
+    .timeline-item li {
+      color: var(--muted);
+    }
+
+    .timeline-item ul {
+      display: grid;
+      gap: 7px;
+      padding-left: 18px;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .cert-item {
+      padding: 20px 22px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      color: #dce9f7;
+      background: rgba(15, 33, 54, 0.72);
+      font-weight: 650;
+    }
+
+    .cert-item span {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--secondary);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .education-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .education-card h3 {
+      font-size: 1.35rem;
+    }
+
+    .education-card p {
+      color: var(--muted);
+    }
+
+    .education-year {
+      flex: 0 0 auto;
+      color: var(--secondary) !important;
+      font-weight: 800;
+    }
+
+    .contact-card {
+      padding: clamp(30px, 6vw, 56px);
+      border: 1px solid rgba(85, 167, 255, 0.28);
+      border-radius: 26px;
+      text-align: center;
+      background:
+        radial-gradient(circle at top, rgba(85, 167, 255, 0.18), transparent 45%),
+        var(--surface-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card p {
+      max-width: 670px;
+      margin: 14px auto 26px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 24px 0 38px;
+      color: #8398b0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--secondary);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 860px) {
+      .about-grid,
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-grid > :first-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max-width));
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-block: 55px 30px;
+      }
+
+      .hero-card {
+        border-radius: 22px;
+      }
+
+      section {
+        padding-block: 58px;
+      }
+
+      .about-grid,
+      .skills-grid,
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid > :first-child {
+        grid-column: auto;
+      }
+
+      .education-card {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-actions,
+      .hero-actions .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <nav>
-        #
-            Jolan<span>.</span>
-        </a>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-        <ul class="nav-links">
-            <li>#homeHome</a></li>
-            <li>#aboutAbout Me</a></li>
-            <li>#skillsSkills</a></li>
-        </ul>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home">Jolan<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <main id="home">
-        <section class="portfolio-card">
-            <div class="profile-badge">
-                Modern Workplace Specialist
-            </div>
+  <main id="main-content">
+    <section class="hero container" id="home">
+      <div class="hero-card">
+        <p class="eyebrow">Modern Workplace Specialist</p>
+        <h1>Hello, I'm <span class="accent">Jolan Nazareno.</span></h1>
+        <h2>Solutions Specialist focused on secure, productive, and well-managed Microsoft environments.</h2>
+        <p class="hero-copy">
+          I work across device management, identity and access, endpoint security, compliance,
+          information protection, and Windows infrastructure using Microsoft Intune, Microsoft 365,
+          Microsoft Entra, Microsoft Defender, Microsoft Purview, and Windows Server.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#experience">View my experience</a>
+          <a class="button button-secondary" href="mailto:uu.joland04@gmail.com">Contact me</a>
+        </div>
+      </div>
+    </section>
 
-            <h1>
-                Hello, I'm <span>Jolan!</span>
-            </h1>
+    <section class="container" id="about">
+      <div class="section-heading">
+        <p class="section-label">About me</p>
+        <h2>Building modern workplace solutions with security at the center.</h2>
+      </div>
 
-            <p class="job-title">
-                Solutions Specialist for Modern Workplace
-            </p>
+      <div class="about-grid">
+        <article class="panel">
+          <p>
+            I am a Modern Workplace specialist with hands-on expertise in Microsoft Intune and
+            Microsoft 365. My work covers device management, identity and access management,
+            endpoint security, compliance, information protection, and collaboration solutions.
+            My professional goal is to help organizations improve security, productivity, and
+            operational efficiency through modern workplace technologies.
+          </p>
+        </article>
 
-            <p class="introduction" id="about">
-                I specialize in delivering secure and modern workplace
-                solutions using Microsoft 365, Microsoft Intune, Microsoft
-                Entra ID, Defender, Purview, and Windows Server.
-            </p>
+        <aside class="panel" aria-label="Core focus areas">
+          <ul class="focus-list">
+            <li>Endpoint management</li>
+            <li>Identity security</li>
+            <li>Information protection</li>
+            <li>Cloud compliance</li>
+            <li>Windows infrastructure</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
 
-            <div class="skills" id="skills">
-                <span class="skill">Microsoft 365</span>
-                <span class="skill">Microsoft Intune</span>
-                <span class="skill">Entra ID</span>
-                <span class="skill">Microsoft Defender</span>
-                <span class="skill">Microsoft Purview</span>
-                <span class="skill">Windows Server</span>
-                <span class="skill">PowerShell</span>
-            </div>
+    <section class="container" id="skills">
+      <div class="section-heading">
+        <p class="section-label">Technical expertise</p>
+        <h2>Core Microsoft technologies</h2>
+        <p class="section-intro">Platforms and capabilities I administer, deploy, and support.</p>
+      </div>
 
-            <div class="buttons">
-                #about
-                    Learn More
-                </a>
+      <div class="skills-grid">
+        <article class="skill-card">
+          <span class="skill-number">01</span>
+          <h3>Endpoint Management</h3>
+          <p>Microsoft Intune, Microsoft Configuration Manager, MDM, MAM, application deployment, device compliance, Company Portal, remote lock, and remote wipe.</p>
+        </article>
 
-                your-email@example.com
-                    Contact Me
-                </a>
-            </div>
-        </section>
-    </main>
+        <article class="skill-card">
+          <span class="skill-number">02</span>
+          <h3>Identity and Access</h3>
+          <p>Microsoft Entra ID, hybrid identity, Entra Connect, SSO, MFA, Conditional Access, RBAC, identity governance, and privileged access.</p>
+        </article>
+
+        <article class="skill-card">
+          <span class="skill-number">03</span>
+          <h3>Endpoint Security</h3>
+          <p>Microsoft Defender, XDR, EDR, Endpoint Security policies, BitLocker, secure access management, and security control implementation.</p>
+        </article>
+
+        <article class="skill-card">
+          <span class="skill-number">04</span>
+          <h3>Compliance and Protection</h3>
+          <p>Microsoft Purview, data loss prevention, Information Protection, sensitivity labels, retention, eDiscovery, and Communication Compliance.</p>
+        </article>
+
+        <article class="skill-card">
+          <span class="skill-number">05</span>
+          <h3>Windows Infrastructure</h3>
+          <p>Windows Server, Active Directory, domain controllers, DNS, DHCP, Group Policy, organizational units, FSMO roles, replication, and health checks.</p>
+        </article>
+
+        <article class="skill-card">
+          <span class="skill-number">06</span>
+          <h3>Updates and Operations</h3>
+          <p>Windows Update for Business, update rings, feature and quality updates, restart behavior, update compliance tracking, documentation, backup, and virtualization.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="experience">
+      <div class="section-heading">
+        <p class="section-label">Professional experience</p>
+        <h2>Experience across modern workplace and IT operations</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <h3>Modern Workplace L3</h3>
+          <p class="company">Shellsoft Technology Corporation</p>
+          <ul>
+            <li>Administer Microsoft Intune, Microsoft Configuration Manager, and Microsoft 365 environments.</li>
+            <li>Configure compliance, Conditional Access, MFA, configuration profiles, CSPs, Endpoint Security, BitLocker, and Windows update policies.</li>
+            <li>Support Microsoft Entra ID, hybrid identity, identity security, Microsoft Purview, and Windows Server services.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <h3>Senior IT Officer / Network Monitoring</h3>
+          <p class="company">Ohana Manpower Inc.</p>
+          <ul>
+            <li>Supported Active Directory, Windows Server, replication, Group Policy, DFS, child domains, domain controller recovery, and disaster recovery planning.</li>
+            <li>Provided remote IT support, workstation and server health checks, backup documentation, NAS administration, virtualization, and CCTV system support.</li>
+            <li>Prepared incident reports and project documentation for clients.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <h3>Technical Support Representative</h3>
+          <p class="company">Infocom Technologies, Inc. | April 2019 to March 2020</p>
+          <ul>
+            <li>Handled outbound calls professionally and responded to technical questions.</li>
+            <li>Supported complaint handling, issue resolution, and data-protection requirements.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="certifications">
+      <div class="section-heading">
+        <p class="section-label">Credentials</p>
+        <h2>Microsoft certifications and applied skills</h2>
+      </div>
+
+      <div class="cert-grid">
+        <div class="cert-item"><span>Certification</span>Microsoft 365 Certified: Endpoint Administrator Associate</div>
+        <div class="cert-item"><span>Certification</span>Microsoft Certified: Identity and Access Administrator Associate</div>
+        <div class="cert-item"><span>Certification</span>Microsoft 365 Certified: Administrator Expert</div>
+        <div class="cert-item"><span>Certification</span>Microsoft Certified: Information Security Administrator Associate</div>
+        <div class="cert-item"><span>Certification</span>Microsoft Certified: Azure AI Apps and Agents Developer Associate</div>
+        <div class="cert-item"><span>Certification</span>Microsoft Certified: Agentic AI Business Solutions Architect Expert</div>
+        <div class="cert-item"><span>Applied Skill</span>Prepare security and compliance to support Microsoft 365 Copilot</div>
+        <div class="cert-item"><span>Applied Skill</span>Implement information protection and data loss prevention using Microsoft Purview</div>
+        <div class="cert-item"><span>Applied Skill</span>Implement retention, eDiscovery, and Communication Compliance in Microsoft Purview</div>
+        <div class="cert-item"><span>Additional Credential</span>GitHub Copilot</div>
+      </div>
+    </section>
+
+    <section class="container" id="education">
+      <div class="section-heading">
+        <p class="section-label">Education</p>
+        <h2>Academic background</h2>
+      </div>
+
+      <article class="panel education-card">
+        <div>
+          <h3>Bachelor of Science in Information Technology</h3>
+          <p>Colegio De Sta. Teresa De Avila</p>
+        </div>
+        <p class="education-year">2010 to 2014</p>
+      </article>
+    </section>
+
+    <section class="container" id="contact">
+      <div class="contact-card">
+        <p class="section-label">Get in touch</p>
+        <h2>Let’s connect about Modern Workplace solutions.</h2>
+        <p>
+          For professional inquiries involving Microsoft 365, endpoint management, identity,
+          security, compliance, and Windows infrastructure, send me an email.
+        </p>
+        <a class="button button-primary" href="mailto:uu.joland04@gmail.com">uu.joland04@gmail.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Jolan Nazareno. Built for GitHub Pages.</p>
+    </div>
+  </footer>
 </body>
 </html>
